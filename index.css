@@ -247,3 +247,11 @@ a{
 color: inherit;
 text-decoration: none;
 }
+
+
+
+.loading{
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: 2rem;
+}

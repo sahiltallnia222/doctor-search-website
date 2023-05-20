@@ -1,9 +1,11 @@
 $('.subhead').hide();
+$('.loading').hide();
 function handleSubmit(){
     let doctor_type=$('#doctor-type').val();
     let doctor_location=$('#location').val();
-    console.log(doctor_type);
-    console.log(doctor_location);
+    $('.loading').show();
+    $('.doctors').empty();
+    $('.subhead').hide();
     const body = {
         search: doctor_type,
         area: doctor_location
@@ -14,9 +16,9 @@ function handleSubmit(){
         data: body,
         dataType: "json",
         success: function(data) {
-          $('.doctors').empty();
           $('.subhead').show();
           $('.doctors').show();
+          $('.loading').hide();
           $('.subhead').text('Doctors Found In Your Area')
           Object.keys(data).map((datakey)=>{
             if(datakey=='Result'){
